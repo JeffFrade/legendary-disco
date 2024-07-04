@@ -14,9 +14,9 @@ class CategoriaService
         $this->categoriaRepository = $categoriaRepository;
     }
 
-    public function index()
+    public function index(array $data)
     {
-        $categorias = $this->categoriaRepository->allNoTrashed();
+        $categorias = $this->categoriaRepository->index($data['situacao'] ?? null);
 
         if (count($categorias) <= 0) {
             throw new CategoriaNotFoundException('Categoria inexistente', 404);

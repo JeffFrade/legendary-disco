@@ -11,4 +11,15 @@ class CategoriaRepository extends AbstractRepository
     {
         $this->model = $categoria;
     }
+
+    public function index(?bool $situacao)
+    {
+        $model = $this->model;
+
+        if (!is_null($situacao)) {
+            $model = $model->where('situacao', $situacao);
+        }
+
+        return $model->get();
+    }
 }

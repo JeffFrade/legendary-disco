@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Core\Support\Controller;
 use App\Interfaces\CategoriaExceptionInterface;
 use App\Services\CategoriaService;
+use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
@@ -15,11 +16,11 @@ class CategoriaController extends Controller
         $this->categoriaService = $categoriaService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         try {
             return response()->json([
-                'data' => $this->categoriaService->index()
+                'data' => $this->categoriaService->index($request->all())
             ], 200);
         } catch (CategoriaExceptionInterface $e) {
             return response()->json([
