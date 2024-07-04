@@ -12,7 +12,7 @@ class CategoriaRepository extends AbstractRepository
         $this->model = $categoria;
     }
 
-    public function index(?bool $situacao)
+    public function index(?bool $situacao = null)
     {
         $model = $this->model;
 
