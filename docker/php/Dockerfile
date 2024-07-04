@@ -10,12 +10,18 @@ RUN apt update \
     && apt install -y \
         autoconf \
         git \
+        zip \
+        unzip \
+        libpq-dev \
+        libzip-dev \
+        zlib1g-dev \
         net-tools \
     && useradd -m jefffrade
 
 RUN rm /etc/ssl/openssl.cnf
 
 RUN docker-php-ext-install \
+        zip \
         pdo \
         pdo_mysql
 
