@@ -28,4 +28,21 @@ class CategoriaController extends Controller
             ], $e->getCode());
         }
     }
+
+    public function store(Request $request)
+    {
+        $data = $this->toValidate($request);
+
+        return response()->json([
+            'data' => $this->categoriaService->store($data)
+        ], 200);
+    }
+
+    protected function toValidate(Request $request)
+    {
+        return \Validator::make($request->all(), [
+            'nome' => 'required|max:35',
+            'situacao' => 'required|boolean',
+        ])->validate();
+    }
 }

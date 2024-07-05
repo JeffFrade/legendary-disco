@@ -24,4 +24,9 @@ class CategoriaService
 
         return $categorias;
     }
+
+    public function store(array $data)
+    {
+        return $this->categoriaRepository->create($data);
+    }
 }
