@@ -14,7 +14,7 @@ class ProdutoRepository extends AbstractRepository
 
     public function index(?string $nome = null, ?int $idCategoria = null)
     {
-        $model = $this->model;
+        $model = $this->model->with('categoria');
 
         if (!is_null($idCategoria)) {
             $model = $model->where('id_categoria', $idCategoria);

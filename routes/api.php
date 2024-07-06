@@ -16,5 +16,6 @@ Route::group(['prefix' => 'categorias', 'middleware' => 'auth:api'], function ()
 });
 
 Route::group(['prefix' => 'produtos', 'middleware' => 'auth:api'], function () {
+    Route::post('/', [ProdutoController::class, 'store'])->name('produtos.store');
     Route::get('/', [ProdutoController::class, 'index'])->name('produtos.index');
 });

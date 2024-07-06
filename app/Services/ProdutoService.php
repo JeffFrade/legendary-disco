@@ -26,4 +26,9 @@ class ProdutoService
 
         return $produtos;
     }
+
+    public function store(array $data)
+    {
+        return $this->produtoRepository->create($data);
+    }
 }
