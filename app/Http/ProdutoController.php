@@ -45,7 +45,7 @@ class ProdutoController
             'id_categoria' => 'required|numeric',
             'preco' => 'required|numeric',
             'foto' => [
-                'required',
+                'nullable',
                 File::image()
             ],
             'situacao' => 'required|boolean'

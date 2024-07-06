@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome', 120);
             $table->bigInteger('id_categoria')->unsigned();
             $table->float('preco');
-            $table->string('foto', 10000);
+            $table->string('foto', 10000)->nullable();
             $table->boolean('situacao')->default(1);
             $table->timestamps();
             $table->softDeletes();
